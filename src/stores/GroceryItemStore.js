@@ -1,8 +1,17 @@
 import dispatcher from '../dispatcher'
 
 function GroceryItemStore() {
+  let items = [{
+    name: "Ice Cream"
+  }, {
+    name: "Waffles"
+  }, {
+    name: "Candy",
+    purchased: true
+  }, {
+    name: "Snarks"
+  }]
 
-  let items = []
   let listeners = []
 
   dispatcher.register(event => {
@@ -12,6 +21,8 @@ function GroceryItemStore() {
         case "add":
           addGroceryItem(event.payload)
           break
+        default:
+
       }
     }
   })
@@ -31,7 +42,7 @@ function GroceryItemStore() {
   }
 
   function triggerListeners() {
-    changeListeners.forEach(listener => listener(groceryItems))
+    listeners.forEach(listener => listener(items))
   }
 
   return {
