@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import action from '../actions/GroceryItemActionCreator'
+import 'react-skeleton-css/styles/skeleton.2.0.4.css'
+import 'react-skeleton-css/styles/normalize.3.0.2.css';
 
 class GroceryListAddItem extends Component {
   constructor(props) {
@@ -30,7 +32,7 @@ class GroceryListAddItem extends Component {
     return (
       <div className='grocery-addItem'>
         <form onSubmit={this.addItem}>
-          <input value={this.state.input} onChange={this.handleInputName} />
+          <input type='text' value={this.state.input} onChange={this.handleInputName} />
           <button> Add Item </button>
         </form>
       </div>

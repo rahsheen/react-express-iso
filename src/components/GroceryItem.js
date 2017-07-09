@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import action from '../actions/GroceryItemActionCreator'
+import 'react-skeleton-css/styles/skeleton.2.0.4.css'
+import 'react-skeleton-css/styles/normalize.3.0.2.css';
 
 class GroceryItem extends Component {
   constructor(props) {
@@ -25,8 +27,8 @@ class GroceryItem extends Component {
 
   render() {
     return (
-      <div>
-        <div>
+      <div className="grocery-item row">
+        <div className="six columns">
           <h4 className={this.props.item.purchased ? "strikethrough" : ""}>{this.props.item.name}</h4>
         </div>
         <form className="three columns" onSubmit={this.togglePurchased}>

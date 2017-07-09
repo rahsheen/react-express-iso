@@ -3,11 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "browserify": "^14.4.0",
     "guid": "0.0.12",
+    "gulp-live-server": "0.0.30",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-scripts": "1.0.10",
+    "react-skeleton-css": "^1.0.2",
     "reactify": "^1.1.1",
     "vinyl-source-stream": "^1.1.0"
   },

@@ -1,9 +1,9 @@
 var gulp = require('gulp')
 var LiveServer = require('gulp-live-server')
-var browserSync = require('browser-sync')
-var browserify = require('browserify')
-var reactify = require('reactify')
-var source = require('vinyl-source-stream')
+// var browserSync = require('browser-sync')
+// var browserify = require('browserify')
+// var reactify = require('reactify')
+// var source = require('vinyl-source-stream')
 
 gulp.task('live-server', function() {
   var server = new LiveServer('server/main.js')

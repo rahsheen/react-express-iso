@@ -39,7 +39,7 @@ function GroceryItemStore() {
   function setGroceryItemBought(item, isBought) {
     let _item = items.filter(a => a.name === item.name)[0]
 
-    item.purchased = isBought || false
+    _item.purchased = isBought || false
     triggerListeners()
   }
 
