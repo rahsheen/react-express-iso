@@ -1,9 +1,9 @@
-var express =  require('express')
-
-var app = new express()
+const express =  require('express')
+const path = require('path')
+const app = express()
 
 app.get('/', (req, res) => {
-  res.render('./../index.ejs', {});
+  res.sendFile(path.join(__dirname, 'build', 'index.html'))
 })
-.use(express.static(__dirname + '/../public'))
-.listen(7777);
+.use(express.static(path.join(__dirname, 'build')))
+.listen(7777)
