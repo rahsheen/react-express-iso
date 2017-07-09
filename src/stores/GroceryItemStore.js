@@ -21,15 +21,36 @@ function GroceryItemStore() {
         case "add":
           addGroceryItem(event.payload)
           break
+        case "delete":
+          deleteGroceryItem(event.payload)
+          break
+        case "buy":
+          setGroceryItemBought(event.payload, true)
+          break
+        case "unbuy":
+          setGroceryItemBought(event.payload, false)
+          break
         default:
 
       }
     }
   })
 
+  function setGroceryItemBought(item, isBought) {
+    let _item = items.filter(a => a.name === item.name)[0]
+
+    item.purchased = isBought || false
+    triggerListeners()
+  }
 
   function addGroceryItem(item) {
     items.push(item)
+    triggerListeners()
+  }
+
+  function deleteGroceryItem(item) {
+    const index = items.findIndex(_item => _item.name === item.name)
+    items.splice(index,1)
     triggerListeners()
   }
 
