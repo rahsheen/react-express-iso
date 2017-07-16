@@ -1,6 +1,6 @@
 var gulp = require('gulp')
 var LiveServer = require('gulp-live-server')
-// var browserSync = require('browser-sync')
+var browserSync = require('browser-sync')
 // var browserify = require('browserify')
 // var reactify = require('reactify')
 // var source = require('vinyl-source-stream')

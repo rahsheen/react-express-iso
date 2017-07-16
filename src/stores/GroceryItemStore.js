@@ -1,16 +1,18 @@
 import dispatcher from '../dispatcher'
+import helper from '../helpers/RestHelper'
 
 function GroceryItemStore() {
-  let items = [{
-    name: "Ice Cream"
-  }, {
-    name: "Waffles"
-  }, {
-    name: "Candy",
-    purchased: true
-  }, {
-    name: "Snarks"
-  }]
+  let items = []
+
+  helper.get("api/items")
+    .then(resp => resp.json())
+    .then(data => {
+      items = data
+      triggerListeners()
+    })
+    .catch(error => {
+      console.log("Error ", error)
+    })
 
   let listeners = []
 
@@ -46,11 +48,13 @@ function GroceryItemStore() {
   function addGroceryItem(item) {
     items.push(item)
     triggerListeners()
+
+    helper.post("api/items", item)
   }
 
   function deleteGroceryItem(item) {
     const index = items.findIndex(_item => _item.name === item.name)
-    items.splice(index,1)
+    items.splice(index, 1)
     triggerListeners()
   }
 
