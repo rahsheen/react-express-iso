@@ -3,6 +3,8 @@ const path = require('path')
 const app = new express()
 const parser = require('body-parser')
 
+require('./database.js')
+
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../build', 'index.html'))
 })
